@@ -24,6 +24,7 @@ namespace SignalR_Client
         }
 
         public IHubProxy HubProxy { get; set; }
+        public IHubProxy AnotherHubProxy { set; get; }
         public const string ServerUrl = "http://localhost:50121/";//SignalR Server host
         public HubConnection Connection { get; set; }
 
@@ -31,6 +32,7 @@ namespace SignalR_Client
         {
             Connection = new HubConnection(ServerUrl);
             HubProxy = Connection.CreateHubProxy("SignalRTestHub"); //hub name
+            AnotherHubProxy = Connection.CreateHubProxy("AnotherSignalRTestHub");
             await Connection.Start();
 
             HubProxy.On("sayHello", (message) =>
@@ -38,6 +40,15 @@ namespace SignalR_Client
                         {
                             Console.WriteLine(Convert.ToString(message));
                         }
+                    )
+                )
+            );
+
+            HubProxy.On("anotherSayHello", (message) =>
+                this.Invoke((Action)(() =>
+                {
+                    Console.WriteLine(Convert.ToString(message));
+                }
                     )
                 )
             );
