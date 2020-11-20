@@ -7,3 +7,4 @@ this is sample for signal R Client on ASP.NET Framework Window Form Application 
 
 # Introduction
 - install "Microsoft.AspNet.SignalR.Client" Nuget
+- Run SignalR Server First
