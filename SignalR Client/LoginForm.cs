@@ -77,6 +77,13 @@ namespace SignalR_Client
         {
             
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            this.Hide();
+            registerForm.Show();
+        }
     }
     class LoginToken
     {

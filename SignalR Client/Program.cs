@@ -16,7 +16,7 @@ namespace SignalR_Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (Properties.Settings.Default.access_token != null)
+            if (Properties.Settings.Default.access_token != "")
             {
                 Application.Run(new Form1());
             }
@@ -24,7 +24,6 @@ namespace SignalR_Client
             {
                 Application.Run(new LoginForm());
             }
-            
         }
     }
 }
